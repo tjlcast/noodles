@@ -13,6 +13,7 @@ import java.util.Map;
 /**
  * Created by tangjialiang on 2017/11/27.
  *
+ * AppActor in the world of Actor
  */
 
 public class AppActor extends ContextAwareActor{
@@ -30,6 +31,7 @@ public class AppActor extends ContextAwareActor{
 
     }
 
+    // for creating the AppActor
     public static class ActorCreator extends ContextBasedCreator<AppActor> {
 
         public ActorCreator(ActorSystemContext context) {

@@ -13,6 +13,7 @@ import java.util.Map;
 /**
  * Created by tangjialiang on 2017/11/27.
  *
+ *  SessionManagerActor in the world of actor.
  */
 
 public class SessionManagerActor extends ContextAwareActor{
@@ -30,6 +31,7 @@ public class SessionManagerActor extends ContextAwareActor{
 
     }
 
+    // for creating the sessionManagerActor
     public static class ActorCreator extends ContextBasedCreator<SessionManagerActor> {
 
         public ActorCreator(ActorSystemContext context) {

@@ -15,7 +15,9 @@ import javax.annotation.PostConstruct;
 /**
  * Created by tangjialiang on 2017/11/27.
  *
- * 定义service的actor默认类
+ * 由Spring装载启动，之后开始对Actor世界（环境）进行配置:
+ * 1、AppActor
+ * 2、SessionManagerActor
  */
 
 @Service
