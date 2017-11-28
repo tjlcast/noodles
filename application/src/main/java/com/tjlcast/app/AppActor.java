@@ -31,7 +31,7 @@ public class AppActor extends ContextAwareActor{
     }
 
     public void onReceive(Object message) throws Exception {
-
+        // todo
     }
 
     private ActorRef getOrCreateTenantActor(final String tenantId) {

@@ -3,14 +3,19 @@ package com.tjlcast.service;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
+import akka.actor.Terminated;
 import com.tjlcast.ActorSystemContext;
 import com.tjlcast.app.AppActor;
 import com.tjlcast.session.SessionManagerActor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import scala.concurrent.Await;
+import scala.concurrent.duration.Duration;
+import scala.concurrent.Future;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 /**
  * Created by tangjialiang on 2017/11/27.
@@ -50,5 +55,15 @@ public class DefaultActorService implements ActorService {
         // prepare for session actors.
         sessionManagerActor = system.actorOf(Props.create(new SessionManagerActor.ActorCreator(actorContext)).withDispatcher(CORE_DISPATCHER_NAME), "sessionManagerActor") ;
         actorContext.setSessionManagerActor(sessionManagerActor);
+    }
+
+    @PreDestroy
+    public void stopActorSystem() {
+        Future<Terminated> status = system.terminate();
+        try {
+            Terminated result = Await.result(status, Duration.Inf());
+        } catch (Exception e) {
+            log.error("Fail to terminate actor system.", e) ;
+        }
     }
 }
