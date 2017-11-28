@@ -1,21 +1,21 @@
 package com.tjlcast.bean;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 /**
  * Created by tangjialiang on 2017/11/28.
  */
 
+@Data
 public class Device {
-    @Getter @Setter private String deviceName;
+    private String deviceName;
 
-    @Getter @Setter private String deviceId;    // device id
-    @Getter @Setter private String tenantId;    // tenant id
-    @Getter @Setter private String customerId;  // customer id
+    private String deviceId;    // device id
+    private String tenantId;    // tenant id
+    private String customerId;  // customer id
 
-    @Getter @Setter private String manufacture; //厂商
-    @Getter @Setter private String type;        //设备类型
-    @Getter @Setter private String model;       //设备型号
+    private String manufacture; //厂商
+    private String type;        //设备类型
+    private String model;       //设备型号
 }
