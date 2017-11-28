@@ -1,11 +1,13 @@
 package com.tjlcast.session;
 
 import akka.actor.ActorRef;
+import akka.actor.Props;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 import com.tjlcast.ActorSystemContext;
 import com.tjlcast.service.ContextAwareActor;
 import com.tjlcast.service.ContextBasedCreator;
+import com.tjlcast.service.DefaultActorService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +30,20 @@ public class SessionManagerActor extends ContextAwareActor{
     }
 
     public void onReceive(Object message) throws Exception {
+        // todo
+    }
 
+    private ActorRef getOrCreateSessionActor(String sessionId) {
+        ActorRef sessionActor = sessionActors.get(sessionId) ;
+        if (sessionActor == null) {
+            log.debug("[{}] Creating session actor.", sessionId) ;
+            sessionActor = context().actorOf(
+                    Props.create(new SessionActor.ActorCreator(systemContext, sessionId)).withDispatcher(DefaultActorService.SESSION_DISPATCHER_NAME),
+                    sessionId) ;
+            sessionActors.put(sessionId, sessionActor) ;
+            log.debug("[{}] Created session actor.", sessionId);
+        }
+        return sessionActor ;
     }
 
     // for creating the sessionManagerActor

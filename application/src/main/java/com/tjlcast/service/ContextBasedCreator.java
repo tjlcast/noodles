@@ -8,6 +8,9 @@ import com.tjlcast.ActorSystemContext;
  *
  *  在Actor环境中启动具体Actor的启动类，
  *  封装在具体Actor的内部类中作为启动类。
+ *
+ *  启动类主要用于在创建Actor的时候传递参数。
+ *  usage：actorOf(Props.create(new DeviceActor.ActorCreator(...args)))
  */
 
 public abstract class ContextBasedCreator<T> implements Creator<T> {

@@ -27,6 +27,7 @@ public class DefaultActorService implements ActorService {
     private static final String ACTOR_SYSTEM_NAME = "data-access-system" ;
     public static final String APP_DISPATCHER_NAME = "app-dispatcher" ;
     public static final String CORE_DISPATCHER_NAME = "core-dispatcher" ;
+    public static final String SESSION_DISPATCHER_NAME = "session-dispatcher";
 
     @Autowired
     private ActorSystemContext actorContext ;

@@ -1,11 +1,14 @@
 package com.tjlcast.app;
 
 import akka.actor.ActorRef;
+import akka.actor.Props;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 import com.tjlcast.ActorSystemContext;
 import com.tjlcast.service.ContextAwareActor;
 import com.tjlcast.service.ContextBasedCreator;
+import com.tjlcast.service.DefaultActorService;
+import com.tjlcast.tenant.TenantActor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +32,11 @@ public class AppActor extends ContextAwareActor{
 
     public void onReceive(Object message) throws Exception {
 
+    }
+
+    private ActorRef getOrCreateTenantActor(final String tenantId) {
+        return tenantActors.computeIfAbsent(tenantId, k -> context().actorOf(Props.create(new TenantActor.ActorCreator(systemContext, tenantId))
+                .withDispatcher(DefaultActorService.CORE_DISPATCHER_NAME), tenantId.toString()));
     }
 
     // for creating the AppActor
