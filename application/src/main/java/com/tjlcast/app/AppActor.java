@@ -25,7 +25,7 @@ public class AppActor extends ContextAwareActor{
 
     private final Map<String, ActorRef> tenantActors ;
 
-    public AppActor(ActorSystemContext systemContext) {
+    private AppActor(ActorSystemContext systemContext) {
         super(systemContext);
         this.tenantActors = new HashMap<String, ActorRef>() ;
     }

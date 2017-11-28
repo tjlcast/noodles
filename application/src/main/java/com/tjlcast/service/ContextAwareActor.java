@@ -10,6 +10,7 @@ import com.tjlcast.ActorSystemContext;
  */
 
 public abstract class ContextAwareActor extends UntypedActor{
+
     protected ActorSystemContext systemContext ;
 
     public ContextAwareActor(ActorSystemContext systemContext) {

@@ -15,7 +15,7 @@ public class SessionActor extends ContextAwareActor {
 
     private final String sessionId ;
 
-    public SessionActor(ActorSystemContext systemContext, String sessionId) {
+    private SessionActor(ActorSystemContext systemContext, String sessionId) {
         super(systemContext);
         this.sessionId = sessionId ;
     }

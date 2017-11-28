@@ -12,8 +12,9 @@ import org.springframework.stereotype.Component;
 /**
  * Created by tangjialiang on 2017/11/27.
  *
- * 整个系统需要Akka世间中的以下概念体：
+ * 由Spring进行反转控制，加载Actor的相关配置（通过构造函数）。
  *
+ * 整个系统需要Akka世间中的以下概念体：
  * | ActorSystem -> actorSystem 整个actor世界
  * | ActorRef -> appActor 应用actor
  * | ActorRef -> sessionManagerActor 应用的对外actor
