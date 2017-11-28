@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="application" />
+        <module name="common" />
         <module name="dao" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="application" target="1.8" />
+      <module name="common" target="1.5" />
       <module name="dao" target="1.5" />
       <module name="noodles" target="1.5" />
     </bytecodeTargetLevel>
