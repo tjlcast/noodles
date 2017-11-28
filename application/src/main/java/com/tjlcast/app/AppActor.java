@@ -41,6 +41,10 @@ public class AppActor extends ContextAwareActor{
 
     // for creating the AppActor
     public static class ActorCreator extends ContextBasedCreator<AppActor> {
+        /**
+         * this class is the inner class of AppActor,
+         * so could new an AppActor by this class.
+         */
 
         public ActorCreator(ActorSystemContext context) {
             super(context);
