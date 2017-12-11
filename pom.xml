@@ -10,13 +10,16 @@
   <modules>
     <module>application</module>
     <module>dao</module>
-      <module>common</module>
+    <module>common</module>
   </modules>
 
   <name>noodles</name>
   <url>http://maven.apache.org</url>
 
   <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
     <spring-boot.version>1.4.3.RELEASE</spring-boot.version>
     <spring.version>4.3.4.RELEASE</spring.version>
     <spring-security.version>4.2.0.RELEASE</spring-security.version>
@@ -25,10 +28,24 @@
     <slf4j.version>1.7.7</slf4j.version>
     <logback.version>1.2.3</logback.version>
     <lombok.version>1.16.10</lombok.version>
+    <cassandra.version>3.0.0</cassandra.version>
+    <cassandra-unit.version>3.0.0.1</cassandra-unit.version>
+    <commons-lang3.version>3.4</commons-lang3.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>com.tjlcast</groupId>
+        <artifactId>common</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.tjlcast</groupId>
+        <artifactId>dao</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+
       <dependency>
         <groupId>com.typesafe.akka</groupId>
         <artifactId>akka-actor_${scala.version}</artifactId>
@@ -132,6 +149,26 @@
         <artifactId>lombok</artifactId>
         <version>${lombok.version}</version>
         <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.datastax.cassandra</groupId>
+        <artifactId>cassandra-driver-core</artifactId>
+        <version>${cassandra.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.datastax.cassandra</groupId>
+        <artifactId>cassandra-driver-mapping</artifactId>
+        <version>${cassandra.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.datastax.cassandra</groupId>
+        <artifactId>cassandra-driver-extras</artifactId>
+        <version>${cassandra.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons-lang3.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

@@ -13,9 +13,9 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="application" target="1.8" />
-      <module name="common" target="1.5" />
-      <module name="dao" target="1.5" />
-      <module name="noodles" target="1.5" />
+      <module name="common" target="1.8" />
+      <module name="dao" target="1.8" />
+      <module name="noodles" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

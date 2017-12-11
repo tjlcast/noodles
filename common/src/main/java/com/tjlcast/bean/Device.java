@@ -1,6 +1,5 @@
 package com.tjlcast.bean;
 
-
 import lombok.Data;
 
 /**

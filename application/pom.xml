@@ -66,5 +66,9 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.tjlcast</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
     </dependencies>
 </project>
